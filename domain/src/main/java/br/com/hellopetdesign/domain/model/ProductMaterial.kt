@@ -1,4 +1,4 @@
-package br.com.hellopetdesign.presentation.model
+package br.com.hellopetdesign.domain.model
 
 data class ProductMaterial(
     val material: Material,
