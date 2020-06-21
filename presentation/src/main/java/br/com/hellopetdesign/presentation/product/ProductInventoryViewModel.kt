@@ -7,7 +7,7 @@ import br.com.hellopetdesign.domain.ProductInteractor
 import br.com.hellopetdesign.domain.model.Product
 import kotlinx.coroutines.launch
 
-class ProductInventoryViewModel(val productInteractor: ProductInteractor) : ViewModel() {
+class ProductInventoryViewModel(private val productInteractor: ProductInteractor) : ViewModel() {
     val productList: MutableLiveData<List<Product>> by lazy {
         MutableLiveData<List<Product>>()
     }

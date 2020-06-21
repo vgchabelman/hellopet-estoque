@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.observe
 import br.com.hellopetdesign.presentation.R
+import kotlinx.android.synthetic.main.fragment_product_inventory.*
 
 class ProductInventoryFragment : Fragment() {
 
@@ -24,7 +25,13 @@ class ProductInventoryFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.productList.observe(viewLifecycleOwner) {
-            
+            productInventoryList.adapter = ProductInventoryAdapter(it)
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        viewModel.loadProductList()
     }
 }

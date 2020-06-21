@@ -1,12 +1,12 @@
 package br.com.hellopetdesign.data.datasource
 
-import br.com.hellopetdesign.data.models.Material
-import br.com.hellopetdesign.data.models.Product
-import br.com.hellopetdesign.data.models.ProductMaterial
-import br.com.hellopetdesign.data.models.Supplier
 import br.com.hellopetdesign.data.room.AppDatabase
 import br.com.hellopetdesign.data.room.daos.ProductDao
 import br.com.hellopetdesign.data.room.entities.ProductEntity
+import br.com.hellopetdesign.domain.model.Material
+import br.com.hellopetdesign.domain.model.Product
+import br.com.hellopetdesign.domain.model.ProductMaterial
+import br.com.hellopetdesign.domain.model.Supplier
 import kotlinx.coroutines.flow.first
 
 class LocalProductDataSource(private val appDatabase: AppDatabase) : IProductDataSource {

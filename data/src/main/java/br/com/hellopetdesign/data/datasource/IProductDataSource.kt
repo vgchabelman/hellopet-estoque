@@ -1,6 +1,6 @@
 package br.com.hellopetdesign.data.datasource
 
-import br.com.hellopetdesign.data.models.Product
+import br.com.hellopetdesign.domain.model.Product
 
 interface IProductDataSource {
     suspend fun add(product: Product)
