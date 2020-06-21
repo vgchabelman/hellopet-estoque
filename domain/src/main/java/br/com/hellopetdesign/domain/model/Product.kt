@@ -1,7 +1,7 @@
-package br.com.hellopetdesign.data.models
+package br.com.hellopetdesign.presentation.model
 
 data class Product(
-    var productId: Long,
+    val productId: Long,
     var name: String,
     var materials: List<ProductMaterial>
 )

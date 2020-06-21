@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/productInventoryFragment"
-        android:name="br.com.hellopetdesign.presentation.ProductInventoryFragment"
+        android:name="br.com.hellopetdesign.presentation.product.ProductInventoryFragment"
         android:label="fragment_product_inventory"
         tools:layout="@layout/fragment_product_inventory" >
         <action

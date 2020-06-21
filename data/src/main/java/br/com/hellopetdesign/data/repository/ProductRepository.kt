@@ -1,9 +1,11 @@
 package br.com.hellopetdesign.data.repository
 
 import br.com.hellopetdesign.data.datasource.IProductDataSource
-import br.com.hellopetdesign.data.models.Product
+import br.com.hellopetdesign.domain.model.Product
+import br.com.hellopetdesign.domain.repository.IProductRepository
 
-class ProductRepository(private val localDataProduct: IProductDataSource): IProductRepository {
+class ProductRepository(private val localDataProduct: IProductDataSource):
+    IProductRepository {
     override suspend fun addProduct(product: Product) {
         localDataProduct.add(product)
     }
