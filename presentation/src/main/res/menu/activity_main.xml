@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:title="Produtos"
-        android:icon="@android:drawable/ic_menu_gallery"/>
+        android:id="@id/productInventoryFragment"
+        android:icon="@android:drawable/ic_menu_gallery"
+        android:title="Produtos" />
+
     <item
-        android:title="Estoque"
-        android:icon="@android:drawable/ic_menu_agenda" />
+        android:id="@id/materialInventoryFragment"
+        android:icon="@android:drawable/ic_menu_agenda"
+        android:title="Materiais" />
+
     <item
-        android:title="Pedidos"
-        android:icon="@android:drawable/ic_menu_recent_history" />
+        android:id="@id/orderListFragment"
+        android:icon="@android:drawable/ic_menu_recent_history"
+        android:title="Pedidos" />
 </menu>

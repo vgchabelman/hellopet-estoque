@@ -1,6 +1,6 @@
 package br.com.hellopetdesign.data.datasource
 
-import br.com.hellopetdesign.data.models.Product
+import br.com.hellopetdesign.domain.model.Product
 
 class MockLocalProductDatasource : IProductDataSource {
     var productList: ArrayList<Product> = ArrayList()

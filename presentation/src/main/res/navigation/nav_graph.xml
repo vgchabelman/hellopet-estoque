@@ -9,19 +9,25 @@
     <fragment
         android:id="@+id/productInventoryFragment"
         android:name="br.com.hellopetdesign.presentation.product.inventory.ProductInventoryFragment"
-        android:label="fragment_product_inventory"
-        tools:layout="@layout/fragment_product_inventory" >
-        <action
-            android:id="@+id/action_productInventoryFragment_to_placeholder"
-            app:destination="@id/productDetailFragment" />
+        android:label="Produtos"
+        tools:layout="@layout/fragment_product_inventory">
         <action
             android:id="@+id/action_productInventoryFragment_to_addProductFragment"
             app:destination="@id/addProductFragment" />
     </fragment>
-    <fragment android:id="@+id/productDetailFragment" />
     <fragment
         android:id="@+id/addProductFragment"
         android:name="br.com.hellopetdesign.presentation.product.detail.AddProductFragment"
-        android:label="fragment_add_product"
+        android:label="Novo Produto"
         tools:layout="@layout/fragment_add_product" />
+    <fragment
+        android:id="@+id/materialInventoryFragment"
+        android:name="br.com.hellopetdesign.presentation.material.MaterialInventoryFragment"
+        android:label="Materiais"
+        tools:layout="@layout/fragment_material_inventory" />
+    <fragment
+        android:id="@+id/orderListFragment"
+        android:name="br.com.hellopetdesign.presentation.orders.OrderListFragment"
+        android:label="Pedidos"
+        tools:layout="@layout/fragment_order_list" />
 </navigation>

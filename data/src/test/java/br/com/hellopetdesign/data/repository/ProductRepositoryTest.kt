@@ -1,15 +1,12 @@
 package br.com.hellopetdesign.data.repository
 
 import br.com.hellopetdesign.data.datasource.MockLocalProductDatasource
-import br.com.hellopetdesign.data.models.Product
 import br.com.hellopetdesign.data.models.getMockProduct
-import com.nhaarman.mockitokotlin2.any
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
-import org.junit.Assert
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertTrue
 import org.junit.Test
-
-import org.junit.Assert.*
 
 class ProductRepositoryTest {
     @ExperimentalCoroutinesApi

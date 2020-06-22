@@ -5,6 +5,7 @@ import br.com.hellopetdesign.domain.model.Product
 import br.com.hellopetdesign.domain.model.ProductMaterial
 import br.com.hellopetdesign.domain.model.Supplier
 import br.com.hellopetdesign.domain.repository.MockProductRepository
+import br.com.hellopetdesign.domain.usecases.ProductInteractor
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Assert.*
@@ -13,7 +14,10 @@ import org.junit.Test
 @ExperimentalCoroutinesApi
 class ProductInteractorTest {
     private val mockProductRepository = MockProductRepository()
-    private val productInteractor = ProductInteractor(mockProductRepository)
+    private val productInteractor =
+        ProductInteractor(
+            mockProductRepository
+        )
 
     @Test
     fun `it should return all products in list`() {

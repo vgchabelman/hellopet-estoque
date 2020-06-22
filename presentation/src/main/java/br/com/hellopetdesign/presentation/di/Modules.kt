@@ -4,8 +4,9 @@ import br.com.hellopetdesign.data.datasource.IProductDataSource
 import br.com.hellopetdesign.data.datasource.LocalProductDataSource
 import br.com.hellopetdesign.data.repository.ProductRepository
 import br.com.hellopetdesign.data.room.Database
-import br.com.hellopetdesign.domain.ProductInteractor
 import br.com.hellopetdesign.domain.repository.IProductRepository
+import br.com.hellopetdesign.domain.usecases.IProductInteractor
+import br.com.hellopetdesign.domain.usecases.ProductInteractor
 import br.com.hellopetdesign.presentation.product.detail.AddProductViewModel
 import br.com.hellopetdesign.presentation.product.inventory.ProductInventoryViewModel
 import org.koin.android.ext.koin.androidContext
@@ -17,7 +18,7 @@ val applicationModule = module(override = true) {
 
     factory { LocalProductDataSource(get()) as IProductDataSource }
     factory { ProductRepository(get()) as IProductRepository }
-    factory { ProductInteractor(get()) }
+    factory { ProductInteractor(get()) as IProductInteractor }
 
     viewModel {
         ProductInventoryViewModel(
