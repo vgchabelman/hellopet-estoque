@@ -11,7 +11,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_main)
-        bottomNav?.setupWithNavController(Navigation.findNavController(navHostFragment))
-        bottomNav?.inflateMenu(R.menu.activity_main)
+//        bottomNav?.setupWithNavController(Navigation.findNavController(navHostFragment))
+//        bottomNav?.inflateMenu(R.menu.activity_main)
     }
 }

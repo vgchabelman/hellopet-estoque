@@ -26,6 +26,7 @@ android {
 
 dependencies {
     implementation project(":domain")
+
     //kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation "androidx.core:core-ktx:$kotlinKtxVersion"

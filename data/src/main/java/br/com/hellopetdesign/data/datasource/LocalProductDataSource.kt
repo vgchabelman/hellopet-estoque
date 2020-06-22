@@ -1,6 +1,6 @@
 package br.com.hellopetdesign.data.datasource
 
-import br.com.hellopetdesign.data.room.AppDatabase
+import br.com.hellopetdesign.data.room.Database
 import br.com.hellopetdesign.data.room.daos.ProductDao
 import br.com.hellopetdesign.data.room.entities.ProductEntity
 import br.com.hellopetdesign.domain.model.Material
@@ -9,7 +9,8 @@ import br.com.hellopetdesign.domain.model.ProductMaterial
 import br.com.hellopetdesign.domain.model.Supplier
 import kotlinx.coroutines.flow.first
 
-class LocalProductDataSource(private val appDatabase: AppDatabase) : IProductDataSource {
+class LocalProductDataSource(database: Database) : IProductDataSource {
+    private val appDatabase = database.localDatabase
     private val productDao: ProductDao = appDatabase.productDao()
 
     override suspend fun add(product: Product) {
