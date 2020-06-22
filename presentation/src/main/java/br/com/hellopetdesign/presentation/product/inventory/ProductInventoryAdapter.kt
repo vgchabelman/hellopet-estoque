@@ -1,4 +1,4 @@
-package br.com.hellopetdesign.presentation.product
+package br.com.hellopetdesign.presentation.product.inventory
 
 import br.com.hellopetdesign.domain.model.Product
 import br.com.hellopetdesign.presentation.utils.DatabindBaseAdapter

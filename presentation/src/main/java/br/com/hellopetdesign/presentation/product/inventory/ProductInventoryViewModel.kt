@@ -1,4 +1,4 @@
-package br.com.hellopetdesign.presentation.product
+package br.com.hellopetdesign.presentation.product.inventory
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
