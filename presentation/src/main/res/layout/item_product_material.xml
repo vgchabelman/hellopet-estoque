@@ -6,7 +6,7 @@
     <data>
 
         <variable
-            name="material"
+            name="model"
             type="br.com.hellopetdesign.domain.model.ProductMaterial" />
     </data>
 
@@ -30,7 +30,7 @@
                     android:layout_height="0dp"
                     android:layout_marginStart="16dp"
                     android:gravity="center_vertical"
-                    android:text="@{material.material.name}"
+                    android:text="@{model.material.name}"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/textView5"
                     app:layout_constraintStart_toEndOf="@+id/imageView"
@@ -51,7 +51,7 @@
                     style="@style/TextAppearance.MaterialComponents.Headline4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text='@{""+material.quantity}'
+                    android:text='@{""+model.quantity}'
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="@+id/textView5"
                     app:layout_constraintStart_toStartOf="@+id/textView5"

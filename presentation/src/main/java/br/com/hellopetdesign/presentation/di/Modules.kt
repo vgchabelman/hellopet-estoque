@@ -2,6 +2,7 @@ package br.com.hellopetdesign.presentation.di
 
 import br.com.hellopetdesign.data.datasource.IProductDataSource
 import br.com.hellopetdesign.data.datasource.LocalProductDataSource
+import br.com.hellopetdesign.data.datasource.RemoteProductDataSource
 import br.com.hellopetdesign.data.repository.ProductRepository
 import br.com.hellopetdesign.data.room.Database
 import br.com.hellopetdesign.domain.repository.IProductRepository
@@ -18,18 +19,20 @@ val applicationModule = module(override = true) {
 }
 
 val productModule = module {
-    factory { LocalProductDataSource(get()) as IProductDataSource }
-    factory { ProductRepository(get()) as IProductRepository }
+    factory { LocalProductDataSource(get()) }
+    factory { RemoteProductDataSource() }
+    factory {
+        ProductRepository(
+            get(LocalProductDataSource::class),
+            get(RemoteProductDataSource::class)
+        ) as IProductRepository
+    }
     factory { ProductInteractor(get()) as IProductInteractor }
 
     viewModel {
-        ProductInventoryViewModel(
-            get()
-        )
+        ProductInventoryViewModel(get())
     }
     viewModel {
-        AddProductViewModel(
-            get()
-        )
+        AddProductViewModel(get())
     }
 }

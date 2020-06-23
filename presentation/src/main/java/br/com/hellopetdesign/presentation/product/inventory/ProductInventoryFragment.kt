@@ -30,10 +30,7 @@ class ProductInventoryFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         productInventoryViewModel.productList.observe(viewLifecycleOwner) {
-            productInventoryList.adapter =
-                ProductInventoryAdapter(
-                    it
-                )
+            productInventoryList.adapter = ProductInventoryAdapter(it)
         }
 
         productInventoryFab.setOnClickListener {

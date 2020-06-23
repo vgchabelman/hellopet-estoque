@@ -1,10 +1,14 @@
 package br.com.hellopetdesign.data.repository
 
 import br.com.hellopetdesign.data.datasource.IProductDataSource
+import br.com.hellopetdesign.data.datasource.RemoteProductDataSource
 import br.com.hellopetdesign.domain.model.Product
 import br.com.hellopetdesign.domain.repository.IProductRepository
 
-class ProductRepository(private val localDataProduct: IProductDataSource):
+class ProductRepository(
+    private val localDataProduct: IProductDataSource,
+    private val remoteProductDataSource: IProductDataSource
+) :
     IProductRepository {
     override suspend fun addProduct(product: Product) {
         localDataProduct.add(product)
@@ -15,6 +19,6 @@ class ProductRepository(private val localDataProduct: IProductDataSource):
     }
 
     override suspend fun getAllProducts(): List<Product> {
-        return localDataProduct.getAllProducts()
+        return remoteProductDataSource.getAllProducts()
     }
 }

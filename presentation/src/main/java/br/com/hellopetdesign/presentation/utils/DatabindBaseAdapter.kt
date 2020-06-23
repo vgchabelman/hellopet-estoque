@@ -16,9 +16,15 @@ abstract class DatabindBaseAdapter : RecyclerView.Adapter<DatabindViewHolder>() 
         return DatabindViewHolder(binding)
     }
 
+    abstract fun getByPosition(position: Int): Any
+
     override fun onBindViewHolder(holder: DatabindViewHolder, position: Int) {
         holder.bind(getByPosition(position))
     }
 
-    abstract fun getByPosition(position: Int) : Any
+    abstract fun getLayoutIdForPosition(position: Int): Int
+
+    override fun getItemViewType(position: Int): Int {
+        return getLayoutIdForPosition(position)
+    }
 }
