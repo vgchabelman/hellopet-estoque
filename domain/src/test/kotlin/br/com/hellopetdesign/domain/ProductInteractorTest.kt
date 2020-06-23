@@ -1,9 +1,7 @@
 package br.com.hellopetdesign.domain
 
-import br.com.hellopetdesign.domain.model.Material
 import br.com.hellopetdesign.domain.model.Product
 import br.com.hellopetdesign.domain.model.ProductMaterial
-import br.com.hellopetdesign.domain.model.Supplier
 import br.com.hellopetdesign.domain.repository.MockProductRepository
 import br.com.hellopetdesign.domain.usecases.ProductInteractor
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -59,16 +57,7 @@ class ProductInteractorTest {
             Product(
                 0,
                 "Test",
-                listOf(
-                    ProductMaterial(
-                        Material(
-                            0,
-                            "",
-                            Supplier(0, "", "")
-                        ),
-                        1.0
-                    )
-                )
+                listOf(ProductMaterial(quantity = 1.0))
             )
         )
         assertTrue(b)

@@ -36,9 +36,16 @@ dependencies {
     implementation "androidx.room:room-ktx:$roomVersion"
     kapt "androidx.room:room-compiler:$roomVersion"
 
+    //firebase
+    implementation 'com.google.firebase:firebase-common-ktx:19.3.0'
+    implementation 'com.google.firebase:firebase-firestore-ktx:21.4.3'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.2.1'
+
     //test
     testImplementation "junit:junit:$junitVersion"
     testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoVersion"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$courotinesTestVersion"
+
     androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$courotinesTestVersion"
     androidTestImplementation "androidx.test.ext:junit:$espressoJunitVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espressoCoreVersion"

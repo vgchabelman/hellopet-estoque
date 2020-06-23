@@ -33,7 +33,7 @@ class LocalProductDataSource(database: Database) : IProductDataSource {
                     val m = appDatabase.materialDao().getMaterialWithSupplier(it.materialId).first()
 
                     ProductMaterial(
-                        Material(
+                        material = Material(
                             m.materialEntity.materialId,
                             m.materialEntity.name,
                             Supplier(
@@ -42,7 +42,7 @@ class LocalProductDataSource(database: Database) : IProductDataSource {
                                 m.supplierEntity.address
                             )
                         ),
-                        it.quantity
+                        quantity = it.quantity
                     )
                 })
         }

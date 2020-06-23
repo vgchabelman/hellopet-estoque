@@ -15,7 +15,9 @@ import org.koin.dsl.module
 
 val applicationModule = module(override = true) {
     single { Database(androidContext()) }
+}
 
+val productModule = module {
     factory { LocalProductDataSource(get()) as IProductDataSource }
     factory { ProductRepository(get()) as IProductRepository }
     factory { ProductInteractor(get()) as IProductInteractor }
