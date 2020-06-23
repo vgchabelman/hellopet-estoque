@@ -5,11 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
+import androidx.lifecycle.observe
 import br.com.hellopetdesign.presentation.R
+import kotlinx.android.synthetic.main.fragment_material_inventory.*
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MaterialInventoryFragment : Fragment() {
-    private val viewModel: MaterialInventoryViewModel by viewModels()
+    private val materialInventoryViewModel: MaterialInventoryViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -18,8 +20,17 @@ class MaterialInventoryFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_material_inventory, container, false)
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        materialInventoryViewModel.materialList.observe(viewLifecycleOwner) {
+            materialInventoryList.adapter = MaterialInventoryAdapter(it)
+        }
     }
 
+    override fun onResume() {
+        super.onResume()
+
+        materialInventoryViewModel.loadMaterials()
+    }
 }

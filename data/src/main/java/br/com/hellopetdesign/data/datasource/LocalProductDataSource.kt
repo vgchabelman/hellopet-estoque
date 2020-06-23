@@ -34,13 +34,14 @@ class LocalProductDataSource(database: Database) : IProductDataSource {
 
                     ProductMaterial(
                         material = Material(
-                            m.materialEntity.materialId,
-                            m.materialEntity.name,
-                            Supplier(
+                            materialId = m.materialEntity.materialId,
+                            name = m.materialEntity.name,
+                            supplier = Supplier(
                                 m.supplierEntity.supplierId,
                                 m.supplierEntity.name,
                                 m.supplierEntity.address
-                            )
+                            ),
+                            supplierId = null
                         ),
                         quantity = it.quantity
                     )
