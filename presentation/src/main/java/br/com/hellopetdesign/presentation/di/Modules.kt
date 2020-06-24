@@ -1,9 +1,10 @@
 package br.com.hellopetdesign.presentation.di
 
 import br.com.hellopetdesign.data.datasource.*
+import br.com.hellopetdesign.data.remote.FirebaseRemote
 import br.com.hellopetdesign.data.repository.MaterialRepository
 import br.com.hellopetdesign.data.repository.ProductRepository
-import br.com.hellopetdesign.data.room.Database
+import br.com.hellopetdesign.data.room.RoomDb
 import br.com.hellopetdesign.domain.repository.IMaterialRepository
 import br.com.hellopetdesign.domain.repository.IProductRepository
 import br.com.hellopetdesign.domain.usecases.IMaterialInteractor
@@ -18,12 +19,13 @@ import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val applicationModule = module(override = true) {
-    single { Database(androidContext()) }
+    single { RoomDb(androidContext()) }
+    single { FirebaseRemote() }
 }
 
 val productModule = module {
     factory { LocalProductDataSource(get()) }
-    factory { RemoteProductDataSource() }
+    factory { RemoteProductDataSource(get()) }
     factory {
         ProductRepository(
             get(LocalProductDataSource::class),
@@ -38,7 +40,7 @@ val productModule = module {
 
 val materialModule = module {
     factory { LocalMaterialDataSource(get()) }
-    factory { RemoteMaterialDataSource() }
+    factory { RemoteMaterialDataSource(get()) }
     factory {
         MaterialRepository(
             get(LocalMaterialDataSource::class),

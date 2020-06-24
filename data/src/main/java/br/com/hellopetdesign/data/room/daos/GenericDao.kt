@@ -12,7 +12,7 @@ interface GenericDao<T> {
     @Insert
     suspend fun insert(vararg obj: T): Array<Long>
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(obj: List<T>): Array<Long>
 
     @Delete

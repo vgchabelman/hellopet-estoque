@@ -9,7 +9,7 @@ class MaterialRepository(
     private val remoteMaterialDataSource: IMaterialDataSource
 ): IMaterialRepository{
     override suspend fun getAllMaterials(): List<Material> {
-        return remoteMaterialDataSource.getAllProducts()
+        return remoteMaterialDataSource.getAllMaterials()
     }
 
 }

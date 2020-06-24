@@ -1,14 +1,15 @@
 package br.com.hellopetdesign.data.datasource
 
-import br.com.hellopetdesign.data.remote.PRODUCT_COLLECTION
+import br.com.hellopetdesign.data.remote.FirebaseRemote
 import br.com.hellopetdesign.data.remote.dtos.ProductDTO
 import br.com.hellopetdesign.domain.model.Product
 import br.com.hellopetdesign.domain.model.ProductMaterial
-import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.toObjects
 import kotlinx.coroutines.tasks.await
 
-class RemoteProductDataSource : IProductDataSource {
+class RemoteProductDataSource(
+    private val firebaseRemote: FirebaseRemote
+) : IProductDataSource {
     @ExperimentalStdlibApi
     override suspend fun add(product: Product) {
         val materials = product.materials.map {
@@ -18,10 +19,16 @@ class RemoteProductDataSource : IProductDataSource {
             }
         }
         val p = ProductDTO(product.productId.toString(), product.name, materials)
-        FirebaseFirestore.getInstance()
-            .collection(PRODUCT_COLLECTION)
+        firebaseRemote.getProductCollection()
             .document(p.id)
             .set(p)
+    }
+
+    @ExperimentalStdlibApi
+    override suspend fun add(products: List<Product>) {
+        products.forEach {
+            this.add(it)
+        }
     }
 
     override suspend fun remove(product: Product) {
@@ -29,7 +36,7 @@ class RemoteProductDataSource : IProductDataSource {
     }
 
     override suspend fun getAllProducts(): List<Product> {
-        val querySnapshot = FirebaseFirestore.getInstance().collection(PRODUCT_COLLECTION)
+        val querySnapshot = firebaseRemote.getProductCollection()
             .get()
             .await()
         return querySnapshot.toObjects<ProductDTO>().map {
@@ -44,5 +51,13 @@ class RemoteProductDataSource : IProductDataSource {
                 }
             )
         }
+    }
+
+    override suspend fun getProductLastUpdate(): Int {
+        return firebaseRemote.lastUpdates?.products ?: -1
+    }
+
+    override suspend fun updateProductLastUpdate(index: Int) {
+        firebaseRemote.lastUpdates?.products = index
     }
 }

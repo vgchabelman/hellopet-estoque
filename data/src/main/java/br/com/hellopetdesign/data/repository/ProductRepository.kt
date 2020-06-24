@@ -1,7 +1,6 @@
 package br.com.hellopetdesign.data.repository
 
 import br.com.hellopetdesign.data.datasource.IProductDataSource
-import br.com.hellopetdesign.data.datasource.RemoteProductDataSource
 import br.com.hellopetdesign.domain.model.Product
 import br.com.hellopetdesign.domain.repository.IProductRepository
 
@@ -19,6 +18,12 @@ class ProductRepository(
     }
 
     override suspend fun getAllProducts(): List<Product> {
+        if (localDataProduct.getProductLastUpdate() < remoteProductDataSource.getProductLastUpdate()) {
+            val pList = remoteProductDataSource.getAllProducts()
+            localDataProduct.add(pList)
+
+            return pList
+        }
         return remoteProductDataSource.getAllProducts()
     }
 }
