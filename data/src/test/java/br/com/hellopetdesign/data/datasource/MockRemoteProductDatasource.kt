@@ -2,7 +2,7 @@ package br.com.hellopetdesign.data.datasource
 
 import br.com.hellopetdesign.domain.model.Product
 
-class MockLocalProductDatasource : IProductDataSource {
+class MockRemoteProductDatasource : IProductDataSource {
     var productList: ArrayList<Product> = ArrayList()
     var lastUpdate = 1
 

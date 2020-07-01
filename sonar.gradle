@@ -1,0 +1,26 @@
+apply plugin: "org.sonarqube"
+
+sonarqube {
+    properties {
+        property "sonar.projectName", "hellopet-estoque"
+        property "sonar.projectKey", "hellopet-estoque"
+
+        property "sonar.host.url", "http://localhost:9000/"
+        property "sonar.login", "51d510467488ed5c4fac18a289d3c7e9951e23b9"
+
+        property "sonar.sourceEncoding", "UTF-8"
+        property "sonar.sources", "src/main/java"
+
+        property "sonar.exclusions", '**/*Test*/**,' +
+                '*.json,' +
+                '**/*test*/**,' +
+                '**/.gradle/**,' +
+                '**/R.class'
+
+        property "sonar.java.coveragePlugin", "jacoco"
+        property "sonar.jacoco.reportPath", "build/jacoco/*.exec"
+
+    }
+}
+
+tasks.sonarqube.dependsOn ":presentation:testCoverage"
