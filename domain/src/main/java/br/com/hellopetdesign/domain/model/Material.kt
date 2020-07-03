@@ -4,5 +4,6 @@ data class Material(
     val materialId: Int,
     val name: String,
     val supplierId: Int?,
-    val supplier: Supplier?
+    val supplier: Supplier?,
+    val inventory: Int
 )

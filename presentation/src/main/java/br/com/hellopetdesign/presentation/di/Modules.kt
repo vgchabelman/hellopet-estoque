@@ -3,15 +3,15 @@ package br.com.hellopetdesign.presentation.di
 import br.com.hellopetdesign.data.datasource.*
 import br.com.hellopetdesign.data.remote.FirebaseRemote
 import br.com.hellopetdesign.data.repository.MaterialRepository
+import br.com.hellopetdesign.data.repository.OrderRepository
 import br.com.hellopetdesign.data.repository.ProductRepository
 import br.com.hellopetdesign.data.room.RoomDb
 import br.com.hellopetdesign.domain.repository.IMaterialRepository
+import br.com.hellopetdesign.domain.repository.IOrderRepository
 import br.com.hellopetdesign.domain.repository.IProductRepository
-import br.com.hellopetdesign.domain.usecases.IMaterialInteractor
-import br.com.hellopetdesign.domain.usecases.IProductInteractor
-import br.com.hellopetdesign.domain.usecases.MaterialInteractor
-import br.com.hellopetdesign.domain.usecases.ProductInteractor
+import br.com.hellopetdesign.domain.usecases.*
 import br.com.hellopetdesign.presentation.material.MaterialInventoryViewModel
+import br.com.hellopetdesign.presentation.order.OrderViewModel
 import br.com.hellopetdesign.presentation.product.detail.AddProductViewModel
 import br.com.hellopetdesign.presentation.product.inventory.ProductInventoryViewModel
 import org.koin.android.ext.koin.androidContext
@@ -50,4 +50,14 @@ val materialModule = module {
     factory { MaterialInteractor(get()) as IMaterialInteractor }
 
     viewModel { MaterialInventoryViewModel(get()) }
+}
+
+val orderModule = module {
+    factory { RemoteOrderDataSource(get()) }
+    factory {
+        OrderRepository(get(RemoteOrderDataSource::class)) as IOrderRepository
+    }
+    factory { OrderInteractor(get()) as IOrderInteractor }
+
+    viewModel { OrderViewModel(get()) }
 }

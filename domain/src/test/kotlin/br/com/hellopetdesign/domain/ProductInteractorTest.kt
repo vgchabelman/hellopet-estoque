@@ -30,6 +30,17 @@ class ProductInteractorTest {
     }
 
     @Test
+    fun `it should add product`() {
+        mockProductRepository.productList.clear()
+
+        runBlockingTest {
+            val p = Product(0, "0", emptyList())
+            productInteractor.addProduct(p)
+            assertEquals(mockProductRepository.productList[0], p)
+        }
+    }
+
+    @Test
     fun `it should return false when product name is empty`() {
         val b = productInteractor.isProductNameCorrect(Product(0, "", emptyList()))
         assertFalse(b)

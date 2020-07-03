@@ -51,8 +51,9 @@ class LocalProductDataSource(private val roomDb: RoomDb) : IProductDataSource {
                 productMaterialDao.getMaterialsByProduct(productEntity.productId).first()
 
             return@map Product(productEntity.productId,
-                productEntity.name,
-                productMaterialList.map {
+                name = productEntity.name,
+                inventory = 1,
+                materials = productMaterialList.map {
                     val m = appDatabase.materialDao().getMaterialWithSupplier(it.materialId).first()
 
                     ProductMaterial(
@@ -64,7 +65,8 @@ class LocalProductDataSource(private val roomDb: RoomDb) : IProductDataSource {
                                 m.supplierEntity.name,
                                 m.supplierEntity.address
                             ),
-                            supplierId = null
+                            supplierId = null,
+                            inventory = 1
                         ),
                         quantity = it.quantity
                     )

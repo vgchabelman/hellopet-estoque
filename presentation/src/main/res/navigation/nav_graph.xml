@@ -26,8 +26,8 @@
         android:label="Materiais"
         tools:layout="@layout/fragment_material_inventory" />
     <fragment
-        android:id="@+id/orderListFragment"
-        android:name="br.com.hellopetdesign.presentation.orders.OrderListFragment"
+        android:id="@+id/orderFragment"
+        android:name="br.com.hellopetdesign.presentation.order.OrderFragment"
         android:label="Pedidos"
-        tools:layout="@layout/fragment_order_list" />
+        tools:layout="@layout/fragment_order" />
 </navigation>

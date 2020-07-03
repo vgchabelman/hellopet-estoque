@@ -15,7 +15,8 @@ class RemoteMaterialDataSource(private val firebaseRemote: FirebaseRemote) : IMa
                 materialId = it.id.toInt(),
                 name = it.name,
                 supplierId = it.supplierId,
-                supplier = null
+                supplier = null,
+                inventory = it.inventory
             )
         }
     }

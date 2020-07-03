@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
                 setOf(
                     R.id.productInventoryFragment,
                     R.id.materialInventoryFragment,
-                    R.id.orderListFragment
+                    R.id.orderFragment
                 )
             )
             toolbar?.setupWithNavController(navController, appBarConfiguration)

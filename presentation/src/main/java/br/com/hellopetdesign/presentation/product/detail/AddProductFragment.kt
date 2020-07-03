@@ -19,7 +19,7 @@ class AddProductFragment : BaseFragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        viewModel.newProduct.postValue(Product(0, "", emptyList()))
+        viewModel.newProduct.postValue(Product(0, "", emptyList(), 1))
     }
 
     override fun onCreateView(

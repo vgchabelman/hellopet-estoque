@@ -26,11 +26,15 @@ class FirebaseRemote {
     }
 
     fun getProductCollection(): CollectionReference {
-        return FirebaseFirestore.getInstance().collection(Companion.PRODUCT_COLLECTION)
+        return FirebaseFirestore.getInstance().collection(PRODUCT_COLLECTION)
     }
 
     fun getMaterialCollection(): CollectionReference {
-        return FirebaseFirestore.getInstance().collection(Companion.MATERIAL_COLLECTION)
+        return FirebaseFirestore.getInstance().collection(MATERIAL_COLLECTION)
+    }
+
+    fun getOrderCollection(): CollectionReference {
+        return FirebaseFirestore.getInstance().collection(ORDERS_COLLECTION)
     }
 
     companion object {
@@ -38,5 +42,6 @@ class FirebaseRemote {
         const val MATERIAL_COLLECTION = "materials"
         const val SUPPLIER_COLLECTION = "suppliers"
         const val LAST_UPDATES_COLLECTION = "last-updates"
+        const val ORDERS_COLLECTION = "orders"
     }
 }

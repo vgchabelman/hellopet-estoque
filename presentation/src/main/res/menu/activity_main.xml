@@ -11,7 +11,7 @@
         android:title="Materiais" />
 
     <item
-        android:id="@id/orderListFragment"
+        android:id="@id/orderFragment"
         android:icon="@android:drawable/ic_menu_recent_history"
         android:title="Pedidos" />
 </menu>

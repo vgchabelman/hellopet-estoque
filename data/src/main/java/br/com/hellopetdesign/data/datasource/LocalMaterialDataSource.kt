@@ -13,7 +13,8 @@ class LocalMaterialDataSource(roomDb: RoomDb) : IMaterialDataSource {
                 materialId = it.materialId,
                 name = it.name,
                 supplierId = it.supplierId.toInt(),
-                supplier = null
+                supplier = null,
+                inventory = 1
             )
         }
     }

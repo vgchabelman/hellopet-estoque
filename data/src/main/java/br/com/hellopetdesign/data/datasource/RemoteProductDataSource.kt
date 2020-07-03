@@ -41,14 +41,15 @@ class RemoteProductDataSource(
             .await()
         return querySnapshot.toObjects<ProductDTO>().map {
             Product(
-                it.id.toLong(),
-                it.name,
-                it.materials.map { map ->
+                productId = it.id.toLong(),
+                name = it.name,
+                materials = it.materials.map { map ->
                     ProductMaterial(
                         materialId = map["material_id"]?.toInt(),
                         quantity = map["quantity"] ?: 0.0
                     )
-                }
+                },
+                inventory = it.inventory
             )
         }
     }
