@@ -1,4 +1,4 @@
-package br.com.hellopetdesign.data.remote.dtos
+package br.com.hellopetdesign.remote.dtos
 
 import com.google.firebase.firestore.DocumentId
 

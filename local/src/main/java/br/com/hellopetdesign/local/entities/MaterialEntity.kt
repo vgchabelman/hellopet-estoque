@@ -1,4 +1,4 @@
-package br.com.hellopetdesign.data.room.entities
+package br.com.hellopetdesign.local.entities
 
 import androidx.room.Entity
 import androidx.room.Fts4

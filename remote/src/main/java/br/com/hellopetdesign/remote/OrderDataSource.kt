@@ -1,7 +1,7 @@
 package br.com.hellopetdesign.remote
 
 import br.com.hellopetdesign.data.datasource.IOrderDataSource
-import br.com.hellopetdesign.data.remote.dtos.OrdersDTO
+import br.com.hellopetdesign.remote.dtos.OrdersDTO
 import br.com.hellopetdesign.domain.model.Order
 import br.com.hellopetdesign.domain.model.OrderProduct
 import kotlinx.coroutines.tasks.await

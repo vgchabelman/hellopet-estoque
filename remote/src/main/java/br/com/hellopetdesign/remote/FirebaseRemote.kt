@@ -1,7 +1,7 @@
 package br.com.hellopetdesign.remote
 
 import android.util.Log
-import br.com.hellopetdesign.data.remote.dtos.LastUpdatesDTO
+import br.com.hellopetdesign.remote.dtos.LastUpdatesDTO
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore

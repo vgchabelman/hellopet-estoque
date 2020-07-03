@@ -1,7 +1,7 @@
 package br.com.hellopetdesign.remote
 
 import br.com.hellopetdesign.data.datasource.IMaterialDataSource
-import br.com.hellopetdesign.data.remote.dtos.MaterialDTO
+import br.com.hellopetdesign.remote.dtos.MaterialDTO
 import br.com.hellopetdesign.domain.model.Material
 import kotlinx.coroutines.tasks.await
 

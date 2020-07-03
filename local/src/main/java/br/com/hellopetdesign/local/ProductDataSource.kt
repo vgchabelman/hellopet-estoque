@@ -1,16 +1,16 @@
-package br.com.hellopetdesign.data.datasource
+package br.com.hellopetdesign.local
 
-import br.com.hellopetdesign.data.room.RoomDb
-import br.com.hellopetdesign.data.room.daos.ProductDao
-import br.com.hellopetdesign.data.room.entities.ProductEntity
-import br.com.hellopetdesign.data.room.entities.ProductMaterialEntity
+import br.com.hellopetdesign.data.datasource.IProductDataSource
 import br.com.hellopetdesign.domain.model.Material
 import br.com.hellopetdesign.domain.model.Product
 import br.com.hellopetdesign.domain.model.ProductMaterial
 import br.com.hellopetdesign.domain.model.Supplier
+import br.com.hellopetdesign.local.daos.ProductDao
+import br.com.hellopetdesign.local.entities.ProductEntity
+import br.com.hellopetdesign.local.entities.ProductMaterialEntity
 import kotlinx.coroutines.flow.first
 
-class LocalProductDataSource(private val roomDb: RoomDb) : IProductDataSource {
+class ProductDataSource(private val roomDb: RoomDb) : IProductDataSource {
     private val appDatabase = roomDb.localDatabase
     private val productDao: ProductDao = appDatabase.productDao()
 

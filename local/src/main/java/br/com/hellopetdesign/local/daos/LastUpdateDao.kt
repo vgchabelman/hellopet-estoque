@@ -1,8 +1,8 @@
-package br.com.hellopetdesign.data.room.daos
+package br.com.hellopetdesign.local.daos
 
 import androidx.room.Dao
 import androidx.room.Query
-import br.com.hellopetdesign.data.room.entities.LastUpdateEntity
+import br.com.hellopetdesign.local.entities.LastUpdateEntity
 
 @Dao
 interface LastUpdateDao: GenericDao<LastUpdateEntity> {

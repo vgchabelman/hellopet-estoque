@@ -1,7 +1,7 @@
 package br.com.hellopetdesign.remote
 
 import br.com.hellopetdesign.data.datasource.IProductDataSource
-import br.com.hellopetdesign.data.remote.dtos.ProductDTO
+import br.com.hellopetdesign.remote.dtos.ProductDTO
 import br.com.hellopetdesign.domain.model.Product
 import br.com.hellopetdesign.domain.model.ProductMaterial
 import com.google.firebase.firestore.ktx.toObjects

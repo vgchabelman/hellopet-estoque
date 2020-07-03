@@ -1,4 +1,4 @@
-package br.com.hellopetdesign.data.remote.dtos
+package br.com.hellopetdesign.remote.dtos
 
 data class LastUpdatesDTO(
     val materials: Int = 1,

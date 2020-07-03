@@ -1,8 +1,8 @@
-package br.com.hellopetdesign.data.room.daos
+package br.com.hellopetdesign.local.daos
 
 import androidx.room.Dao
 import androidx.room.Query
-import br.com.hellopetdesign.data.room.entities.ProductEntity
+import br.com.hellopetdesign.local.entities.ProductEntity
 import kotlinx.coroutines.flow.Flow
 
 @Dao

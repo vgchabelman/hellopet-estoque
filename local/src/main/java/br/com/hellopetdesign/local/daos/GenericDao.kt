@@ -1,4 +1,4 @@
-package br.com.hellopetdesign.data.room.daos
+package br.com.hellopetdesign.local.daos
 
 import androidx.room.Delete
 import androidx.room.Insert

@@ -1,9 +1,9 @@
-package br.com.hellopetdesign.data.room
+package br.com.hellopetdesign.local
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import br.com.hellopetdesign.data.room.daos.*
-import br.com.hellopetdesign.data.room.entities.*
+import br.com.hellopetdesign.local.daos.*
+import br.com.hellopetdesign.local.entities.*
 
 @Database(
     entities = [

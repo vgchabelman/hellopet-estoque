@@ -1,4 +1,4 @@
-package br.com.hellopetdesign.data.room.entities
+package br.com.hellopetdesign.local.entities
 
 import androidx.room.Embedded
 import androidx.room.Relation
