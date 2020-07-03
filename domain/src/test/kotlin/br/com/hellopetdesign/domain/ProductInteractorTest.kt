@@ -20,9 +20,9 @@ class ProductInteractorTest {
     @Test
     fun `it should return all products in list`() {
         mockProductRepository.productList.clear()
-        mockProductRepository.productList.add(Product(0, "0", emptyList()))
-        mockProductRepository.productList.add(Product(1, "1", emptyList()))
-        mockProductRepository.productList.add(Product(2, "2", emptyList()))
+        mockProductRepository.productList.add(Product(0, "0", emptyList(),1))
+        mockProductRepository.productList.add(Product(1, "1", emptyList(),1))
+        mockProductRepository.productList.add(Product(2, "2", emptyList(),1))
 
         runBlockingTest {
             assertEquals(productInteractor.getAllProducts(), mockProductRepository.productList)
@@ -34,7 +34,7 @@ class ProductInteractorTest {
         mockProductRepository.productList.clear()
 
         runBlockingTest {
-            val p = Product(0, "0", emptyList())
+            val p = Product(0, "0", emptyList(),1)
             productInteractor.addProduct(p)
             assertEquals(mockProductRepository.productList[0], p)
         }
@@ -42,14 +42,14 @@ class ProductInteractorTest {
 
     @Test
     fun `it should return false when product name is empty`() {
-        val b = productInteractor.isProductNameCorrect(Product(0, "", emptyList()))
+        val b = productInteractor.isProductNameCorrect(Product(0, "", emptyList(),1))
         assertFalse(b)
     }
 
     @Test
     fun `it should return true when product name is not empty`() {
         val b = productInteractor.isProductNameCorrect(
-            Product(0, "Test", emptyList())
+            Product(0, "Test", emptyList(),1)
         )
         assertTrue(b)
     }
@@ -57,7 +57,7 @@ class ProductInteractorTest {
     @Test
     fun `it should return false when list is empty`() {
         val b = productInteractor.isProductMaterialListCorrect(
-            Product(0, "Test", emptyList())
+            Product(0, "Test", emptyList(),1)
         )
         assertFalse(b)
     }
@@ -68,7 +68,8 @@ class ProductInteractorTest {
             Product(
                 0,
                 "Test",
-                listOf(ProductMaterial(quantity = 1.0))
+                listOf(ProductMaterial(quantity = 1.0)),
+                1
             )
         )
         assertTrue(b)
