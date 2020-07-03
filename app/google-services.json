@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "44520972807",
+    "firebase_url": "https://hellopet-estoque.firebaseio.com",
+    "project_id": "hellopet-estoque",
+    "storage_bucket": "hellopet-estoque.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:44520972807:android:a37a10d19a1014d99580a2",
+        "android_client_info": {
+          "package_name": "br.com.hellopetdesign.estoque"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "44520972807-svr6pp2d8h2gprvajo0bar3846fk5fme.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGbsukR2WwZb5UHEcb8SL-U6x26v3Dq8k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "44520972807-svr6pp2d8h2gprvajo0bar3846fk5fme.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

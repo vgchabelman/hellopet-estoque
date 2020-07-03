@@ -21,7 +21,7 @@ ext {
 
     appCompatVersion = "1.1.0"
     constraintLayoutVersion = "1.1.3"
-    navigationVersion = "2.2.2"
+    navigationVersion = "2.3.0"
 
     roomVersion = "2.2.5"
 

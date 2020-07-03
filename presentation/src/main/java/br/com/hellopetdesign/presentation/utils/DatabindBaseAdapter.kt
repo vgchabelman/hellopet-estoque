@@ -6,7 +6,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 
-
 abstract class DatabindBaseAdapter : RecyclerView.Adapter<DatabindViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DatabindViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)

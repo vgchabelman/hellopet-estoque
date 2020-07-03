@@ -1,5 +1,8 @@
+include ':local'
+include ':presentation'
+include ':app'
+include ':remote'
 include ':domain'
 include ':presentation'
-include ':data'
 include ':data'
 rootProject.name = "Estoque Hello Pet"
