@@ -7,7 +7,7 @@ jacoco {
 
 afterEvaluate { project ->
     if (isAndroidModule(project)) setupAndroidReporting()
-    else setupKotlinReporting()
+    else setupAndroidReporting()
 }
 
 private static boolean isAndroidModule(Project project) {
@@ -36,13 +36,12 @@ def setupAndroidReporting() {
 
     def unitTestTask = "testDebugUnitTest"
 
-    tasks.create(
-            name: "testCoverage",
+    task testCoverage (
             type: JacocoReport,
             dependsOn: [
                     'testDebugUnitTest',
-                    ":data:testDebugUnitTest",
-//                    ":domain:testDebugUnitTest",
+                    ":data:test",
+                    ":domain:test",
                     ":presentation:testDebugUnitTest",
             ]
     ) {
@@ -85,7 +84,15 @@ def setupAndroidReporting() {
                 '**/*$Result$*.*'/* filtering `sealed` and `data` classes */
         ]
 
+        classDirectories.setFrom(files([
+                fileTree(dir: "$project.rootDir/app/build/tmp/kotlin-classes/debug", excludes: fileFilter),
+                fileTree(dir: "$project.rootDir/data/build/tmp/kotlin-classes/debug", excludes: fileFilter),
+                fileTree(dir: "$project.rootDir/domain/build/tmp/kotlin-classes/debug", excludes: fileFilter),
+                fileTree(dir: "$project.rootDir/presentation/build/tmp/kotlin-classes/debug", excludes: fileFilter),
+        ]))
+
         def coverageSourceDirs = [
+                "$project.rootDir/app/src/main/java",
                 "$project.rootDir/data/src/main/java",
                 "$project.rootDir/domain/src/main/java",
                 "$project.rootDir/presentation/src/main/java"
@@ -93,14 +100,11 @@ def setupAndroidReporting() {
         additionalSourceDirs.setFrom(files(coverageSourceDirs))
         sourceDirectories.setFrom(files(coverageSourceDirs))
 
-        classDirectories.setFrom(files([
-                fileTree(dir: "$project.rootDir/data/build/tmp/kotlin-classes/debug", excludes: fileFilter),
-//                fileTree(dir: "$project.rootDir/domain/build/tmp/kotlin-classes/debug", excludes: fileFilter),
-                fileTree(dir: "$project.rootDir/presentation/build/tmp/kotlin-classes/debug", excludes: fileFilter),
-        ]))
-
         executionData.setFrom(files([
-                "$project.buildDir/jacoco/${unitTestTask}.exec",
+//                "$project.buildDir/jacoco/${unitTestTask}.exec",
+                "$project/presentation/build/jacoco/${unitTestTask}.exec",
+                "$project/data/build/jacoco/test.exec",
+                "$project/domain/build/jacoco/test.exec",
         ]))
     }
 }

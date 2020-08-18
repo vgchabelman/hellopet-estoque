@@ -1,41 +1,6 @@
-apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
-apply plugin: 'kotlin-kapt'
+apply plugin: 'java-library'
+apply plugin: 'kotlin'
 apply from: "$project.rootDir/jacoco.gradle"
-
-android {
-    compileSdkVersion 29
-
-    defaultConfig {
-        minSdkVersion 25
-        targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
-
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles "consumer-rules.pro"
-    }
-
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-        debug {
-            testCoverageEnabled true
-        }
-    }
-
-    compileOptions {
-        sourceCompatibility 1.8
-        targetCompatibility 1.8
-    }
-
-    sourceSets {
-        androidTest.assets.srcDirs += files("$projectDir/schemas".toString())
-    }
-}
 
 dependencies {
     api project(":domain")
@@ -49,3 +14,6 @@ dependencies {
     testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoVersion"
     testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$courotinesTestVersion"
 }
+
+sourceCompatibility = "1.8"
+targetCompatibility = "1.8"
